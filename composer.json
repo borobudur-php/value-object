@@ -1,0 +1,23 @@
+{
+    "name": "borobudur/value-object",
+    "type": "library",
+    "description": "Borobudur Value Object Component",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iqbal Maulana",
+            "email": "iq.bluejack@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Borobudur\\Component\\Value\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
