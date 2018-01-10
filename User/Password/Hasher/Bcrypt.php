@@ -17,9 +17,9 @@ namespace Borobudur\Component\Value\User\Password\Hasher;
  */
 final class Bcrypt implements HasherInterface
 {
-    private const DEFAULT_COST = 11;
+    public const DEFAULT_COST = 11;
 
-    private const ALGORITHM = ['code' => PASSWORD_BCRYPT, 'name' => 'bcrypt'];
+    public const ALGORITHM = ['code' => PASSWORD_BCRYPT, 'name' => 'bcrypt'];
 
     /**
      * @var array

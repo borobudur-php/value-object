@@ -20,11 +20,11 @@ use Borobudur\Component\Value\User\Exception\InvalidUsernameException;
  */
 final class Username implements ScalarValueObjectInterface
 {
-    private const MIN_LENGTH = 5;
+    public const MIN_LENGTH = 5;
 
-    private const MAX_LENGTH = 10;
+    public const MAX_LENGTH = 10;
 
-    private const FORMAT = '/^[a-z0-9\_]+$/';
+    public const FORMAT = '/^[a-z0-9\_]+$/';
 
     /**
      * @var string
