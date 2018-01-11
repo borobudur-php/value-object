@@ -17,6 +17,8 @@ namespace Borobudur\Component\Value\User\Password\Hasher;
  */
 interface HasherInterface
 {
+    public static function fromArray(array $data): HasherInterface;
+
     public function hash(string $text): string;
 
     public function verify(string $text, string $hashed): bool;
@@ -24,4 +26,6 @@ interface HasherInterface
     public function isHashed(string $text): bool;
 
     public function isNeedToRehash(string $hashed): bool;
+
+    public function toArray(): array;
 }

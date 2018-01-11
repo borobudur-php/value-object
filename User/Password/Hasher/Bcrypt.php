@@ -37,6 +37,11 @@ final class Bcrypt implements HasherInterface
         $this->options = ['cost' => $cost, 'salt' => $salt];
     }
 
+    public static function fromArray(array $data): HasherInterface
+    {
+        return new Bcrypt($data['cost'], $data['salt']);
+    }
+
     public static function create(): Bcrypt
     {
         $salt = base_convert(sha1(uniqid((string) mt_rand(), true)), 16, 36);
@@ -80,5 +85,13 @@ final class Bcrypt implements HasherInterface
     public function isNeedToRehash(string $hashed): bool
     {
         return password_needs_rehash($hashed, self::ALGORITHM['code'], $this->options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray(): array
+    {
+        return $this->options;
     }
 }

@@ -46,6 +46,11 @@ final class Password
         return new static($hasher->hash($password), $hasher);
     }
 
+    public static function fromArray(array $data): Password
+    {
+        return new Password($data['hashed'], $data['hasher']['class']::{'fromArray'}($data['hasher']['data']));
+    }
+
     public function matches(string $password): bool
     {
         return $this->hasher->verify($password, $this->hashed);
@@ -54,5 +59,16 @@ final class Password
     public function isNeedToRehash(): bool
     {
         return $this->hasher->isNeedToRehash($this->hashed);
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'hashed' => $this->hashed,
+            'hasher' => [
+                'class' => get_class($this->hasher),
+                'data'  => $this->hasher->toArray(),
+            ],
+        ];
     }
 }
